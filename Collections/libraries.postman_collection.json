@@ -1,0 +1,559 @@
+{
+	"info": {
+		"_postman_id": "066dfc1b-d462-4f3d-a0d5-0e5f45ca205f",
+		"name": "libraries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26858273"
+	},
+	"item": [
+		{
+			"name": "Add a library",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Biblioteca Central\",\r\n  \"direccion\": \"Av. de los Libros 123\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n  \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add library",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Biblioteca Central\",\r\n  \"direccion\": \"Av. de los Libros 123\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n  \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\",\r\n  \"nombre\": \"Biblioteca Central\",\r\n  \"direccion\": \"Av. de los Libros 123\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n  \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid library",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Biblioteca sin dirección ni horarios\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid library",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Biblioteca sin dirección ni horarios\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n   \"message\": \"Missing information to library\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all libraries",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all libraries",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\",\r\n    \"nombre\": \"Biblioteca Central\",\r\n    \"direccion\": \"Avenida de los Libros 123\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n    \"horaCierre\": \"2023-01-01T18:00:00.000Z\",\r\n    \"libros\": [\r\n      {\r\n        \"id\": \"a1b2c3d4-e5f6-7890-abcd-1234567890ab\",\r\n        \"titulo\": \"Cien años de soledad\",\r\n        \"autor\": \"Gabriel García Márquez\",\r\n        \"fechaPublicacion\": \"1967-05-30T00:00:00.000Z\",\r\n        \"ISBN\": \"9780307474728\"\r\n      },\r\n      {\r\n        \"id\": \"f6a7b8c9-d0e1-2345-abcd-111122223333\",\r\n        \"titulo\": \"1984\",\r\n        \"autor\": \"George Orwell\",\r\n        \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n        \"ISBN\": \"9780451524935\"\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"id\": \"c3d4e5f6-a7b8-9012-abcd-456789abcdef\",\r\n    \"nombre\": \"Biblioteca del Norte\",\r\n    \"direccion\": \"Calle 100 #20-30\",\r\n    \"ciudad\": \"Medellín\",\r\n    \"horaApertura\": \"2023-01-01T09:00:00.000Z\",\r\n    \"horaCierre\": \"2023-01-01T17:00:00.000Z\",\r\n    \"libros\": []\r\n  }\r\n]\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get one library",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Biblioteca sin dirección ni horarios\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries/{{library_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries",
+						"{{library_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one library",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Biblioteca sin dirección ni horarios\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries/{{library_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries",
+								"{{library_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\",\r\n  \"nombre\": \"Biblioteca Central\",\r\n  \"direccion\": \"Avenida de los Libros 123\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n  \"horaCierre\": \"2023-01-01T18:00:00.000Z\",\r\n  \"libros\": [\r\n    {\r\n      \"id\": \"a1b2c3d4-e5f6-7890-abcd-1234567890ab\",\r\n      \"titulo\": \"Cien años de soledad\",\r\n      \"autor\": \"Gabriel García Márquez\",\r\n      \"fechaPublicacion\": \"1967-05-30T00:00:00.000Z\",\r\n      \"ISBN\": \"9780307474728\"\r\n    },\r\n    {\r\n      \"id\": \"f6a7b8c9-d0e1-2345-abcd-111122223333\",\r\n      \"titulo\": \"1984\",\r\n      \"autor\": \"George Orwell\",\r\n      \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n      \"ISBN\": \"9780451524935\"\r\n    }\r\n  ]\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid library",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries/1234-5678-abcd-efgh-ijklmnopqrst",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries",
+						"1234-5678-abcd-efgh-ijklmnopqrst"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid library",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries/1234-5678-abcd-efgh-ijklmnopqrst",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries",
+								"1234-5678-abcd-efgh-ijklmnopqrst"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"No se encontró el libro con el ID '1234-5678-abcd-efgh-ijklmnopqrst'.\",\r\n  \"error\": \"Not Found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update library",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Biblioteca Central Actualizada\",\r\n  \"direccion\": \"Calle 99 #9-99\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n  \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries/{{library_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries",
+						"{{library_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update library",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Biblioteca Central Actualizada\",\r\n  \"direccion\": \"Calle 99 #9-99\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n  \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries/{{library_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries",
+								"{{library_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\",\r\n  \"nombre\": \"Biblioteca Central Actualizada\",\r\n  \"direccion\": \"Calle 99 #9-99\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n  \"horaCierre\": \"2023-01-01T18:00:00.000Z\",\r\n  \"libros\": [\r\n    {\r\n      \"id\": \"f6a7b8c9-d0e1-2345-abcd-111122223333\",\r\n      \"titulo\": \"1984\",\r\n      \"autor\": \"George Orwell\",\r\n      \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n      \"ISBN\": \"9780451524935\"\r\n    }\r\n  ]\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Update invalid library",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": 123,\r\n  \"autor\": false,\r\n  \"fechaPublicacion\": \"no-es-una-fecha\",\r\n  \"ISBN\": 987654321\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries/11111111-1111-1111-1111-111111111112",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries",
+						"11111111-1111-1111-1111-111111111112"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update invalid library",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": 123,\r\n  \"autor\": false,\r\n  \"fechaPublicacion\": \"no-es-una-fecha\",\r\n  \"ISBN\": 987654321\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries/11111111-1111-1111-1111-111111111112",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries",
+								"11111111-1111-1111-1111-111111111112"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 400,\r\n  \"message\": \"El formato del ID es inválido.\",\r\n  \"error\": \"Bad Request\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Delete a library",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries/{{library_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries",
+						"{{library_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a library",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries/{{library_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries",
+								"{{library_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"message\": \"La biblioteca fue eliminada exitosamente.\",\r\n  \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid library",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/libraries/11111111-2222-3333-4444-555555555555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"libraries",
+						"11111111-2222-3333-4444-555555555555"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid library",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/libraries/11111111-2222-3333-4444-555555555555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"libraries",
+								"11111111-2222-3333-4444-555555555555"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"La biblioteca con ID '11111111-2222-3333-4444-555555555555' no fue encontrada.\",\r\n  \"error\": \"Not Found\"\r\n}\r\n"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,525 @@
+{
+	"info": {
+		"_postman_id": "99cc684b-e6cf-4e3e-a995-b0da7938f404",
+		"name": "books",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26858273"
+	},
+	"item": [
+		{
+			"name": "Add a book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"Cien años de soledad\",\r\n  \"autor\": \"Gabriel García Márquez\",\r\n  \"fechaPublicacion\": \"1967-06-05T00:00:00.000Z\",\r\n  \"ISBN\": \"9780307474728\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Cien años de soledad\",\r\n  \"autor\": \"Gabriel García Márquez\",\r\n  \"fechaPublicacion\": \"1967-06-05T00:00:00.000Z\",\r\n  \"ISBN\": \"9780307474728\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"e45678ab-1234-4cde-9876-abcdef123456\",\r\n  \"titulo\": \"Cien años de soledad\",\r\n  \"autor\": \"Gabriel García Márquez\",\r\n  \"fechaPublicacion\": \"1967-06-05T00:00:00.000Z\",\r\n  \"ISBN\": \"9780307474728\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"Sin autor ni fecha\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Sin autor ni fecha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 400,\r\n   \"message\": \"Missing information boook\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all books",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get all books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"id\": \"a1b2c3d4-e5f6-7890-abcd-1234567890ab\",\r\n    \"titulo\": \"Cien años de soledad\",\r\n    \"autor\": \"Gabriel García Márquez\",\r\n    \"fechaPublicacion\": \"1967-05-30T00:00:00.000Z\",\r\n    \"ISBN\": \"9780307474728\",\r\n    \"bibliotecas\": [\r\n      {\r\n        \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\",\r\n        \"nombre\": \"Biblioteca Central\",\r\n        \"direccion\": \"Avenida de los Libros 123\",\r\n        \"ciudad\": \"Bogotá\",\r\n        \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n        \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n      },\r\n      {\r\n        \"id\": \"d4e5f6a7-b8c9-0123-defg-456789abcdef\",\r\n        \"nombre\": \"Biblioteca del Sur\",\r\n        \"direccion\": \"Calle 45 Sur #12\",\r\n        \"ciudad\": \"Medellín\",\r\n        \"horaApertura\": \"2023-01-01T09:00:00.000Z\",\r\n        \"horaCierre\": \"2023-01-01T17:00:00.000Z\"\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"id\": \"f6a7b8c9-d0e1-2345-abcd-111122223333\",\r\n    \"titulo\": \"1984\",\r\n    \"autor\": \"George Orwell\",\r\n    \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n    \"ISBN\": \"9780451524935\",\r\n    \"bibliotecas\": []\r\n  }\r\n]\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get one book",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/{{book_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one book",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/{{book_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"f6a7b8c9-d0e1-2345-abcd-111122223333\",\r\n  \"titulo\": \"1984\",\r\n  \"autor\": \"George Orwell\",\r\n  \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n  \"ISBN\": \"9780451524935\",\r\n  \"bibliotecas\": [\r\n    {\r\n      \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\",\r\n      \"nombre\": \"Biblioteca Central\",\r\n      \"direccion\": \"Avenida de los Libros 123\",\r\n      \"ciudad\": \"Bogotá\",\r\n      \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n      \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n    }\r\n  ]\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid book",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/1234-5678-abcd-efgh-ijklmnopqrst",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"1234-5678-abcd-efgh-ijklmnopqrst"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid book",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/1234-5678-abcd-efgh-ijklmnopqrst",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"1234-5678-abcd-efgh-ijklmnopqrst"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"No se encontró el libro con el ID '1234-5678-abcd-efgh-ijklmnopqrst'.\",\r\n  \"error\": \"Not Found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update book",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"1984 (Edición Revisada)\",\r\n  \"autor\": \"George Orwell\",\r\n  \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n  \"ISBN\": \"9780451524935\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/{{book_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update book",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"1984 (Edición Revisada)\",\r\n  \"autor\": \"George Orwell\",\r\n  \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n  \"ISBN\": \"9780451524935\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/{{book_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"f6a7b8c9-d0e1-2345-abcd-111122223333\",\r\n  \"titulo\": \"1984 (Edición Revisada)\",\r\n  \"autor\": \"George Orwell\",\r\n  \"fechaPublicacion\": \"1949-06-08T00:00:00.000Z\",\r\n  \"ISBN\": \"9780451524935\",\r\n  \"bibliotecas\": [\r\n    {\r\n      \"id\": \"b1c2d3e4-f5a6-7890-abcd-0987654321ab\",\r\n      \"nombre\": \"Biblioteca Central\",\r\n      \"direccion\": \"Avenida de los Libros 123\",\r\n      \"ciudad\": \"Bogotá\",\r\n      \"horaApertura\": \"2023-01-01T08:00:00.000Z\",\r\n      \"horaCierre\": \"2023-01-01T18:00:00.000Z\"\r\n    }\r\n  ]\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Update invalid book",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": 1984,\r\n  \"autor\": true,\r\n  \"fechaPublicacion\": \"fecha\",\r\n  \"ISBN\": 1234567890\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/11111111-1111-1111-1111-111111111111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"11111111-1111-1111-1111-111111111111"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update invalid book",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": 1984,\r\n  \"autor\": true,\r\n  \"fechaPublicacion\": \"fecha\",\r\n  \"ISBN\": 1234567890\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/11111111-1111-1111-1111-111111111111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"11111111-1111-1111-1111-111111111111"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 400,\r\n  \"message\": \"El formato del ID es inválido.\",\r\n  \"error\": \"Bad Request\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Delete a book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/{{book_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a book",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/{{book_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"message\": \"El libro fue eliminado exitosamente.\",\r\n  \"id\": \"f6a7b8c9-d0e1-2345-abcd-111122223333\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/11111111-1111-1111-1111-111111111111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"11111111-1111-1111-1111-111111111111"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid book",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/11111111-1111-1111-1111-111111111111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"11111111-1111-1111-1111-111111111111"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"El libro con ID '11111111-1111-1111-1111-111111111111' no fue encontrado.\",\r\n  \"error\": \"Not Found\"\r\n}\r\n"
+				}
+			]
+		}
+	]
+}
